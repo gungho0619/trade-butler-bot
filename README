@@ -1,0 +1,82 @@
+# Trade Butler
+
+Welcome to Trade Butler! It is a local limit trading bot intended
+for use with uniswap. Other DEXs can be used if their contracts are
+similar by switching out the contract address in processor.js
+
+## You MUST hold in your wallet at least 1 TBB Token to use!
+
+Pricing tiers/limits are as follows:
+
+* 1 TBB (or 0.4 LP) 
+
+   -- 2 max tokens simultaneously 
+   -- Buy & sell limit prices `buyLimitPrice` and `sellLimitPrice`
+   -- Stop losses using `stopLossPrice`
+   -- Moonbag (keep %) - `moonbagToKeep`
+   -- Never Sell X Tokens - `neverSellXTokens`
+   -- Max Gas Per Token - `maxGasPriceGwei`
+   -- Slippage Settings in BIPS - `slippageTolerance`
+   -- Average scans together - `averageXScans`
+   -- Don't Buy/Sell Until Full Scans - `dontBuySellUntilFullScans`
+   -- Support Fee On Transfer of Tokens (burn etc) - `supportFeeOnTransferTokens`
+   -- Keep Trying TXs if they fail - `keepTryingTXifFail`
+   -- Token Pre Approvals - `needTokenApproval`
+
+* 4 TBB (or 1.5 LP)
+
+   -- 10 max tokens simultaneously 
+   -- ERC20 to ERC20 trading - `inputTokenAddress`
+   -- Trailing stop and trailing buy features - `trailingBuyPct` and `trailingSellPct`
+   -- Maximum Price Impact - `maxPriceImpact`
+
+* 8 TBB (or 3.0 LP)
+
+   -- unlimited scans
+
+## TBB - Trade Butler Bot
+** TBB Token Address - 0x4a7adcb083fe5e3d6b58edc3d260e2e61668e7a2 **
+** LP Token Address - 0x4f839e991bb8c66b7066e2d4d753f47613f4d558 **
+
+1. wallet-keys.js - add your private key and wallet address.
+   Note that ONLY buysell.js uses these keys for the standard
+   uniswap contracts and token spending approval.
+
+2. setup.js - get an Infura and/or Alchemy API key, both aren't
+   necessary but it's a good idea to have at least one for rate
+   limits. You can setup most other configuration variables here.
+
+3. index.js - add tokens you want to scan here. Make sure your wallet
+   is either already approved to spend on uniswap, or you turn variable
+   needTokenApproval to true. Make sure to turn it to false after
+   allowing one round of approval or else the script will approve each
+   time. If uniswap router cannot spend your tokens, you will fail tx
+   when trying to sell!
+
+4. Install Node.JS for your OS: https://nodejs.org/en/download/
+   For Windows users, you may find it most convenient to just download the correct version right away:
+   14.15.1 - https://nodejs.org/dist/v14.15.1/node-v14.15.1-x64.msi
+
+5. Make sure your Node.js is the correct version (using npm): 14.15.1
+   `npm cache clean -f`
+   `npm install -g n`
+   `n 14.15.1`
+
+   (not needed on windows if you downloaded exact version)
+
+6. Extract files into a folder and open a terminal or cmd.exe
+   Navigate to your folder with:
+   `cd /path/to/bot`
+   OR
+   `cd C:\Files\Path\to\bot`
+
+7. Run the following commands to install modules, 
+   you only need to run this command once: 
+   `npm install`
+
+7. To start running the bot:
+   `npm start`
+
+8. Profit!
+
+Latest MD5 Hash for processor.jsc - f4364b5a5cdad2dc27503a200f225f91
